@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hiberate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="ru.itis.hibernate.models.Lesson">
+        <id name="id">
+            <generator class="identity"></generator>
+        </id>
+
+        <property name="name"/>
+
+        <!--внешний ключ-->
+        <many-to-one name="course" class="ru.itis.hibernate.models.Course">
+            <column name="course_id"/>
+        </many-to-one>
+    </class>
+
+</hibernate-mapping>

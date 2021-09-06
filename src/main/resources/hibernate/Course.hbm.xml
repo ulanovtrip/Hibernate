@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hiberate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--Этот файл нужен для генерации класса-->
+
+<hibernate-mapping>
+    <class name="ru.itis.hibernate.models.Course">
+
+        <id name="id" type="java.lang.Long">
+            <!--бд сама отвечает за генерацию id-->
+            <generator class="identity"></generator>
+        </id>
+
+        <property name="title"/>
+
+        <!--коллекция уроков-->
+        <bag name="lessons">
+            <key>
+                <column name="course_id"/>
+            </key>
+            <one-to-many class="ru.itis.hibernate.models.Lesson"/>
+        </bag>
+
+
+    </class>
+</hibernate-mapping>
